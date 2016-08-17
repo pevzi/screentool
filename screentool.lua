@@ -120,11 +120,20 @@ function FixedScreen:setScalingMode(scalingMode)
     self:updateTransformations()
 end
 
-function FixedScreen:resize(w, h)
-    self.windowWidth = w
-    self.windowHeight = h
+function FixedScreen:setWindowSize(...)
+    if select("#", ...) == 1 then
+        self.x = 0
+        self.y = 0
+        self.scale = ...
 
-    self:updateTransformations()
+        self.windowWidth = self.width * self.scale
+        self.windowHeight = self.height * self.scale
+    else
+        self.windowWidth, self.windowHeight = ...
+        self:updateTransformations()
+    end
+
+    return self.windowWidth, self.windowHeight
 end
 
 function FixedScreen:toGame(x, y)
