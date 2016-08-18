@@ -2,6 +2,8 @@
 
 screentool is a small library that helps making fixed-resolution games using LÖVE framework. It manages scaling and positioning your game screen within an arbitrarily sized window and provides pixel-perfect rendering.
 
+Note that this library doesn't change the actual window resolution so you have to call `love.window.setMode` yourself.
+
 ## Example
 
 ```lua
@@ -63,7 +65,7 @@ Draws the canvas to the actual screen applying all the necessary transformations
 
 Sets `scalingMode` as the scaling mode for the screen. Accepted values are:
 
-- `"fit"` - fits the game into the window preserving proportions but not necessarily keeping the pixels equal
+- `"fit"` - fits the game into the window preserving proportions but not necessarily keeping pixels equal
 - `"floor"` - uses the biggest possible integer multiplier for scaling and centers the game within the window
 
 ### `FixedScreen:getScalingMode()`
@@ -76,7 +78,7 @@ Sets the size of the window to fit the game screen into. Should be called in `lo
 
 ### `FixedScreen:setWindowSize(multiplier)`
 
-Sets the window size as a multiplier of the game size. Returns the new window width and height which then should be used as arguments to `love.window.setMode`.
+Sets the window size as a multiple of the game size. Returns the new window width and height which then should be used as arguments to `love.window.setMode`.
 
 ### `FixedScreen:updateTransformations()`
 
