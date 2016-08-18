@@ -58,7 +58,7 @@ local function newFixedScreen(width, height, scalingMode)
 
     self.width = width
     self.height = height
-    self.scalingMode = assertScalingMode(scalingMode or "fit")
+    self.scalingMode = assertScalingMode(scalingMode or "floor")
 
     self.windowWidth, self.windowHeight = lg.getDimensions()
 

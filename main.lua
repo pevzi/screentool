@@ -15,7 +15,6 @@ function love.load()
     local w, h = love.graphics.getDimensions()
 
     screen = screentool.newFixedScreen(w, h)
-    screen:setScalingMode("floor")
 
     grid = love.graphics.newImage("grid.png")
     grid:setWrap("repeat", "repeat")
