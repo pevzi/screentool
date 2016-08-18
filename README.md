@@ -9,18 +9,16 @@ Note that this library doesn't change the actual window resolution so you have t
 ```lua
 local screentool = require "screentool"
 
-local width, height = 128, 96
-
 local screen
 
 function love.load()
-    screen = screentool.newFixedScreen(width, height)
+    screen = screentool.newFixedScreen(128, 96)
 
     local windowWidth, windowHeight = screen:setWindowSize(2) -- X2 scaling
 
     love.window.setMode(windowWidth, windowHeight, {
-        minwidth = width,
-        minheight = height,
+        minwidth = screen:getWidth(),
+        minheight = screen:getHeight(),
         resizable = true
     })
 end
