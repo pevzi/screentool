@@ -28,16 +28,7 @@ local function centerRect(width, height, l,t,w,h)
 end
 
 local function fitRect(width, height, l,t,w,h, floor)
-    local wratio = w / width
-    local hratio = h / height
-
-    local scale
-
-    if wratio > hratio then
-        scale = hratio
-    else
-        scale = wratio
-    end
+    local scale = math.min(w / width, h / height)
 
     if floor then
         scale = math.floor(scale)
