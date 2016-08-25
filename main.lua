@@ -38,12 +38,12 @@ end
 function love.keypressed(key)
     if key == "escape" then
         love.event.quit()
-    elseif key == "left" then
-        if screen.scale > 1 then
-            setScale(screen.scale - 1)
+    else
+        local scale = tonumber(key)
+
+        if scale and scale > 0 then
+            setScale(scale)
         end
-    elseif key == "right" then
-        setScale(screen.scale + 1)
     end
 end
 
