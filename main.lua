@@ -6,7 +6,12 @@ local grid, quad
 
 local function setScale(scale)
     local width, height = screen:setWindowSize(scale)
+
     local _, _, flags = love.window.getMode()
+
+    -- center the window
+    flags.x = nil
+    flags.y = nil
 
     love.window.setMode(width, height, flags)
 end
